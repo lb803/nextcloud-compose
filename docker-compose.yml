@@ -3,6 +3,7 @@ version: '3.2'
 services:
   nc:
     image: nextcloud:apache
+    container_name: nextcloud-apache
     restart: always
     ports:
       - 8080:80
@@ -13,8 +14,8 @@ services:
       - redisnet
       - dbnet
     environment:
-      - REDIS_HOST=redis
-      - POSTGRES_HOST=db
+      - REDIS_HOST=nextcloud-redis
+      - POSTGRES_HOST=nextcloud-db
       - POSTGRES_DB_FILE=/run/secrets/postgres_db
       - POSTGRES_USER_FILE=/run/secrets/postgres_user
       - POSTGRES_PASSWORD_FILE=/run/secrets/postgres_password
@@ -32,6 +33,7 @@ services:
 
   redis:
     image: redis:alpine
+    container_name: nextcloud-redis
     restart: always
     expose:
       - 6379
@@ -40,6 +42,7 @@ services:
 
   db:
     image: postgres:15-alpine
+    container_name: nextcloud-db
     restart: always
     expose:
       - 5432
