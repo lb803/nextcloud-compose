@@ -2,11 +2,11 @@
 
 One more docker compose recipe to deploy Nextcloud.
 
-## How does it work
+## Set Up
 
 First, you need to set secrets for docker compose. The folder secrets holds a list of files where you can set usernames and passwords for your Nextcloud installation.
 
-Once that is done, you can deploy with `docker-composer up`
+Once ready, you can deploy with `docker-composer up`
 
 ## Notes
 
