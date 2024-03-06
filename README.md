@@ -12,6 +12,11 @@ Once ready, you can deploy with `docker-composer up`
 
 ## Notes
 
+### Reverse Proxy
 This Nextcloud installation is supposed to be run behind a reverse proxy.
 
+### PostreSQL
 At the time of writing, Nextcloud does not support Postgres 16 ([ref](https://docs.nextcloud.com/server/25/admin_manual/installation/system_requirements.html)). So for the moment I pinned version 15, but this might change in the future.
+
+### Backround Jobs
+This docker compose does not come with a cron container. Should you wish to have the backround jobs run with cron, I suggest to simply run them on the host machine with: `*/5 * * * * docker exec -u www-data nextcloud-fpm php /var/www/html/cron.php`
