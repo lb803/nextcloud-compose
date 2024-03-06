@@ -2,7 +2,7 @@ version: '3.2'
 
 services:
   nc:
-    image: nextcloud:fpm-alpine
+    image: nextcloud:28-fpm-alpine
     container_name: nextcloud-fpm
     hostname: nextcloud-fpm
     restart: always
