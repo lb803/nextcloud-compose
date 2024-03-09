@@ -7,8 +7,7 @@ services:
     hostname: nextcloud-fpm
     restart: always
     volumes:
-      - /var/log/nextcloud:/var/log
-      - nc_data:/var/www/html:z
+      - nc_data:/var/www/html
     networks:
       - redisnet
       - dbnet
@@ -67,7 +66,7 @@ services:
       - 8080:80
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - nc_data:/var/www/html:z,ro
+      - nc_data:/var/www/html:ro
     networks:
       - webnet
     depends_on:
